@@ -2,12 +2,10 @@ version: '3'
 
 tasks:
   decompile:
-    desc: Decompile APK using jadx
-    cmds:
-      - rm -rf decompiled
-      - jadx -d decompiled apk/twickets.apk
+    desc: Decompile twickets apk
+    cmd: jadx -d decompiled apk/twickets.apk
 
-  scan:
-    desc: Print API findings
+  extract:
+    desc: Extract api details
     cmds:
       - python3 scripts/scan.py decompiled
