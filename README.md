@@ -4,15 +4,20 @@ Decompile the Twickets APK and extract API details
 
 ## Prerequisites
 
-```bash
-brew install go-task jadx
-```
+- **go-task** — task runner for running commands
+- **jadx** — decompiles Android APKs to readable Java source
+- **uv** — Python package runner, used to run gplaydl to download APK and run the extract script
 
-Place the APK at `apk/twickets.apk`.
+Install with:
+
+```bash
+brew install go-task jadx uv
+```
 
 ## Run
 
 ```bash
+task download
 task decompile
 task extract
 ```
