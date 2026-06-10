@@ -1,9 +1,6 @@
-# Ignore certain files
 *.apk
 *.pyc
-
-# Ignore certain directories
-__pycache__/
 .task/
+__pycache__/
 decompiled/
 docs/
