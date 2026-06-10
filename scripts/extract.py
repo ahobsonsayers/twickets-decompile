@@ -6,7 +6,6 @@ UUID = re.compile(r'"([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{1
 USER_AGENT_PREFIX = re.compile(r'"(Twickets/[\d.]+ \(Android/)')
 SERVICES_PATH = re.compile(r'(?:appendEncodedPath|\.appendPath)\("(services/?)"\)')
 ENDPOINT = re.compile(r'@(?:nt\.)?([fobp])\("([^"]+)"\)')
-METHODS = {"f": "GET", "o": "POST", "b": "DELETE", "p": "PUT"}
 
 
 def extract(decompiled_dir: str) -> None:
