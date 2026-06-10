@@ -1,11 +1,19 @@
 version: '3'
 
 tasks:
+  download:
+    desc: Download Twickets APK
+    dir: apk
+    cmds:
+      - uvx gplaydl auth
+      - uvx gplaydl download co.twickets.droid --no-splits --no-extras
+      - mv co.twickets.droid-*.apk twickets.apk
+
   decompile:
-    desc: Decompile twickets apk
+    desc: Decompile Twickets APK
     cmd: jadx -d decompiled apk/twickets.apk
 
   extract:
-    desc: Extract api details
+    desc: Extract API details
     cmds:
-      - python3 scripts/extract.py decompiled
+      - uv run scripts/extract.py decompiled
