@@ -41,10 +41,12 @@ def scan(decompiled_dir: str) -> None:
         for method, endpoint in stream_endpoints:
             if "g2/catalogue" in endpoint:
                 url = f"{base_url}{endpoint}"
+                print("Ticket Feed:")
                 print(f"URL: {url}")
                 print(f"API Key: {api_key}")
                 print(f"User-Agent: {user_agent}")
                 print()
+                print("Example:")
                 print(f'curl -H "User-Agent: {user_agent}" "{url}?countryCode=GB&limit=10&api_key={api_key}"')
                 break
 

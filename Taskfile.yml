@@ -8,4 +8,4 @@ tasks:
   extract:
     desc: Extract api details
     cmds:
-      - python3 scripts/scan.py decompiled
+      - python3 scripts/extract.py decompiled
