@@ -22,6 +22,8 @@ task decompile
 task extract
 ```
 
+Note: `task decompile` may finish with errors — this is normal for obfuscated Android APKs and the decompiled output is still usable.
+
 ## Example Output
 
 ```

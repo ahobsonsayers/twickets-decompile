@@ -11,7 +11,7 @@ tasks:
 
   decompile:
     desc: Decompile Twickets APK
-    cmd: jadx -d decompiled apk/twickets.apk
+    cmd: jadx -d decompiled apk/twickets.apk || true
 
   extract:
     desc: Extract API details
