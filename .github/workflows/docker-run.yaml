@@ -1,0 +1,25 @@
+name: Run Docker Image
+
+on:    
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Run container to extract API keys
+        run: |
+          if [ -z "$GPLAYDL_CONFIG" ]; then
+            echo "ERROR: GPLAYDL_CONFIG secret not set. See README."
+            exit 1
+          fi
+          docker run --rm \
+            -e GPLAYDL_CONFIG="$GPLAYDL_CONFIG" \
+            ghcr.io/${{ github.repository_owner }}/twickets-decompile:latest
+        env:
+          GPLAYDL_CONFIG: ${{ secrets.GPLAYDL_CONFIG }}
