@@ -1,13 +1,19 @@
-# Ignore certain files
-*.apk
-*.pyc
-
-# Ignore certain directories
-.task/
+# Python
 __pycache__/
+*.pyc
+.venv/
+
+# Env
+.env
+
+# Pipeline output
 apk/
 decompiled/
-docs/
+keys.json
+client-id.json
 
-# Keep certain files
-!apk/.gitkeep
+# Task
+.task/
+
+# OS / editor
+.DS_Store

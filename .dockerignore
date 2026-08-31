@@ -1,0 +1,10 @@
+apk/
+decompiled/
+learnings/
+README.md
+.git/
+.github/
+.env
+.env.example
+Taskfile.yaml
+.dockerignore

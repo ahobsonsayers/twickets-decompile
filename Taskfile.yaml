@@ -1,0 +1,33 @@
+version: '3'
+
+vars:
+  PACKAGE: co.twickets.droid
+  APK_NAME: twickets
+
+tasks:
+  download:
+    desc: Download apk
+    cmd: |
+      set -a; [ -f .env ] && . ./.env; set +a
+      bash scripts/01-download.sh apk
+
+  decompile:
+    desc: Decompile apk
+    cmd: bash scripts/02-decompile.sh apk/{{.APK_NAME}}.apk decompiled
+
+  extract:
+    desc: Extract static API keys
+    cmd: bash scripts/03-extract.sh decompiled/sources
+
+  docker:build:
+    desc: Build the key extractor image
+    cmds:
+      - docker build -t twickets-decompile:latest .
+
+  docker:run:
+    desc: Run the container and write keys.json
+    cmds:
+      - |
+        set -a; [ -f .env ] && . ./.env; set +a
+        docker run --rm -e GPLAYDL_CONFIG="${GPLAYDL_CONFIG:-}" \
+          twickets-decompile:latest > keys.json
