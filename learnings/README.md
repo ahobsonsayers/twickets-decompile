@@ -1,8 +1,9 @@
 # Twickets API Documentation
 
-Reverse-engineered from the Twickets Android app (`co.twickets.droid`, v3.19 /
-versionCode 182) via APK decompilation, plus live HTTP verification against the
-real backend.
+Reverse-engineered from the Twickets Android app (`co.twickets.droid`, v3.20 /
+versionCode 189) via APK decompilation, plus live HTTP verification against the
+real backend (live checks were done against v3.19; v3.20 changes are
+source-only unless noted).
 
 ## Sections
 
@@ -18,10 +19,12 @@ real backend.
 
 **Auth model:** no user accounts — requests are authorised by the three static
 keys in [config.md](config.md) (`api_key` header, `User-Agent` header,
-`x-prosopo-site-key` header). Most catalogue requests additionally require a
-fresh `x-prosopo-android-integrity-token` JWE minted by the app at launch.
+`x-prosopo-site-key` header) plus, as of v3.20, hardware-backed key attestation
+signatures. Most catalogue requests additionally require a fresh
+`x-prosopo-android-integrity-token` JWE minted by the app at launch.
 
 ## Status legend
 
 Note: fields marked in each doc as confirmed = verified with a live HTTP request
-in v3.19. Source = found in decompiled Java, params inferred, not confirmed live.
+in v3.19. Source = found in decompiled Java (v3.20 unless noted), params
+inferred, not confirmed live.

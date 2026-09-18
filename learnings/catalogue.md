@@ -56,8 +56,8 @@ Sent by the app with the `api_key` **header** (not query param).
 | `limit` | int | page size |
 | `cursor` | string | pagination cursor from a previous response |
 
-Source: Retrofit interface `l9/a.java` (`@f("g2/catalogue")`); params
-source-inferred.
+Source: Retrofit interface `k9/a.java` (`@f("g2/catalogue")`; `l9/a.java` in
+v3.19); params source-inferred.
 
 ## Media
 
@@ -66,4 +66,6 @@ source-inferred.
 Takes `api_key` as a **query param** (in addition to the `api_key` header the
 interceptors add — the app sends both). With static keys only → `500` (not
 403/404, so the route exists); a working 200 response was not obtained with a
-valid JWE either, so treat as unresolved. Source: `vc0/e.java`.
+valid JWE either, so treat as unresolved. v3.20 source (`tr/b.java I()`):
+sizes are 540x320 or 400x400 — i.e.
+`media/{id}/540/320?api_key=<api_key>` or `media/{id}/400/400?api_key=<api_key>`.

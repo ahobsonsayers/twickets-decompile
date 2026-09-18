@@ -13,10 +13,10 @@ stale/missing integrity token fail fast with 403.
 | `403` HTML | Legacy `/services/catalogue` without a valid integrity token |
 
 ## Best practices
-
 - **Add random delays** between requests (1-2 seconds)
-- **Stop on 403** — it means your integrity token expired; re-extract rather
-  than retrying
+- **Stop on 403** — it means your integrity token expired (or, on v3.20,
+  missing attestation signatures); re-extract rather than retrying
 - **429 / 5xx** — stop immediately and retry later
-- The JWE is minted per app launch and expires (~24h TTL) — plan re-extraction
-  cycles, see [twickets-key-extractor](https://github.com/ahobsonsayers/twickets-key-extractor)
+- The JWE is minted per app launch and expires (client re-mint ~22h, validity
+  check 24h in v3.20) — plan re-extraction cycles, see
+  [twickets-key-extractor](https://github.com/ahobsonsayers/twickets-key-extractor)
